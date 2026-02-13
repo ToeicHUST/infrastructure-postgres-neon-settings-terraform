@@ -3,6 +3,7 @@ variable "neon_project_list" {
   description = "Danh sách tên các project cần tạo"
   default = [
     "kong",
+    "api_gateway_http_log",
   ]
 }
 
