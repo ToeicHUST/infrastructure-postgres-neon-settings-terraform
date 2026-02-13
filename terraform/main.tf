@@ -1,14 +1,5 @@
-variable "neon_project_list" {
-  type        = list(string)
-  description = "Danh sách tên các project cần tạo"
-  default = [
-    "kong",
-    "api_gateway_http_log",
-  ]
-}
-
 resource "neon_project" "this" {
-  for_each = toset(var.neon_project_list)
+  for_each = toset(var.projects)
 
   org_id    = data.doppler_secrets.this.map["NEON_ORGANIZATION_ID"]
   name      = each.key
